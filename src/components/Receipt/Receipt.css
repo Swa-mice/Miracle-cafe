@@ -1,0 +1,54 @@
+.receipt{
+    margin-top:40px;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.receipt h1{
+    text-align:center;
+    color:#6b4226;
+}
+
+.receipt h3{
+    text-align:center;
+    color:#999;
+}
+
+.receipt-item{
+    display:flex;
+    justify-content:space-between;
+    margin:12px 0;
+}
+
+.print-btn{
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    background:#6b4226;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.print-btn:hover{
+    background:#4e2d17;
+}
+.qr-section{
+    margin-top:30px;
+    text-align:center;
+}
+
+.qr-section svg{
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+.qr-section p{
+    margin-top:15px;
+    color:#666;
+}

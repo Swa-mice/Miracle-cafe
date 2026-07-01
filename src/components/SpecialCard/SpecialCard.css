@@ -1,0 +1,119 @@
+.special-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+    transition:.35s;
+
+    position:relative;
+
+    text-align:center;
+}
+
+.special-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.badge{
+
+position:absolute;
+
+top:15px;
+
+left:15px;
+
+background:#C89B3C;
+
+color:white;
+
+padding:8px 15px;
+
+border-radius:30px;
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+.special-image{
+
+width:100%;
+
+height:240px;
+
+object-fit:cover;
+
+}
+
+.special-card h2{
+
+margin-top:20px;
+
+color:#3B2416;
+
+}
+
+.rating{
+
+color:#C89B3C;
+
+font-weight:bold;
+
+margin:10px 0;
+
+}
+
+.description{
+
+padding:0 20px;
+
+line-height:1.7;
+
+color:#666;
+
+}
+
+.special-card h3{
+
+margin:20px 0;
+
+font-size:28px;
+
+color:#3B2416;
+
+}
+
+.order-btn{
+
+margin-bottom:25px;
+
+padding:14px 28px;
+
+background:#3B2416;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+font-size:17px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.order-btn:hover{
+
+background:#C89B3C;
+
+}

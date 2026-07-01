@@ -1,0 +1,17 @@
+.features {
+  padding: 80px 10%;
+  background: #F8F4EE;
+}
+
+.features-title {
+  text-align: center;
+  font-size: 42px;
+  color: #3B2416;
+  margin-bottom: 50px;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}

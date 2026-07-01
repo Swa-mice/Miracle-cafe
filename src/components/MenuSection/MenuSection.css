@@ -1,0 +1,17 @@
+.menu-section {
+  margin-bottom: 40px;
+}
+
+.menu-section h2 {
+  margin-bottom: 15px;
+  color: #5C3D2E;
+  font-size: 24px;
+  border-left: 5px solid #D4A373;
+  padding-left: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}

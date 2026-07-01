@@ -1,0 +1,36 @@
+.order-summary{
+    margin-top:40px;
+}
+
+.summary-box{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.summary-item{
+    display:flex;
+    justify-content:space-between;
+    margin:15px 0;
+}
+
+.summary-box button{
+
+    width:100%;
+    margin-top:25px;
+
+    padding:15px;
+
+    background:#c89b3c;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+}

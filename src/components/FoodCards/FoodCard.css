@@ -1,0 +1,50 @@
+.food-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+  transition: .3s;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-header h3 {
+  color: #5C3D2E;
+}
+
+.price {
+  background: #D4A373;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.ingredients {
+  color: #666;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.order-btn {
+  width: 100%;
+  background: #5C3D2E;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.order-btn:hover {
+  background: #D4A373;
+}
