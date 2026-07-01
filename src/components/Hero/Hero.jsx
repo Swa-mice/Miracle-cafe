@@ -1,6 +1,6 @@
 import "./Hero.css";
 import logo from "../../assets/logo/miracle-logo.png";
-import heroImage from "../../assets/image/hero.jpg";
+import heroImage from "../../assets/Image/hero.jpg";
 
 function Hero() {
   return (
