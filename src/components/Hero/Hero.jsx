@@ -1,37 +1,62 @@
 import "./Hero.css";
-import logo from "../../assets/Logo/miracle-logo.png";
 import heroImage from "../../assets/Image/hero.jpg";
+
 function Hero() {
   return (
     <section
       className="hero"
+      id="home"
       style={{ backgroundImage: `url(${heroImage})` }}
     >
+
+      <div className="hero-overlay"></div>
+
       <div className="hero-content">
 
-        <img
-          src={logo}
-          alt="Miracle Cafe"
-          className="hero-logo"
-        />
-
-        <p className="welcome">
-          Welcome to Miracle Cafe
-        </p>
+        <span className="hero-subtitle">
+          ☕ Premium Ethiopian Coffee
+        </span>
 
         <h1>
-          Where Ethiopian Tradition
+          Experience The Real
           <br />
-          Meets Modern Flavor
+          Taste Of Ethiopia
         </h1>
 
-        <p className="description">
-          Enjoy premium coffee, delicious burgers,
-          handmade pizzas, authentic Ethiopian dishes,
-          and unforgettable hospitality.
+        <p>
+          Fresh Coffee • Traditional Food • Pizza • Burgers
+          <br />
+          Modern Restaurant Experience
         </p>
 
+        <div className="hero-rating">
+
+          ⭐⭐⭐⭐⭐
+
+          <span>
+            500+ Happy Customers
+          </span>
+
+        </div>
+
+        <div className="hero-buttons">
+
+          <a href="#menu">
+            <button className="hero-primary">
+              Order Now
+            </button>
+          </a>
+
+          <a href="#about">
+            <button className="hero-secondary">
+              Explore Menu
+            </button>
+          </a>
+
+        </div>
+
       </div>
+
     </section>
   );
 }

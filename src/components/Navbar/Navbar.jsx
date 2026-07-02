@@ -1,29 +1,37 @@
 import "./Navbar.css";
-import logo from "../../assets/Logo/miracle-logo.png";
+import logo from "../../assets/logo/miracle-logo.png";
 
-function Navbar({ cartCount }) {
+function Navbar() {
   return (
-    <nav className="navbar">
+    <header className="navbar">
 
-      <div className="logo-section">
-        <img src={logo} alt="Miracle Cafe Logo" className="logo" />
+      <div className="logo">
 
-        <h2>Miracle Cafe</h2>
+        <img src={logo} alt="Miracle Cafe" />
+
+        <h2>Miracle Coffe House</h2>
+
       </div>
 
-      <ul className="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <nav>
 
-      <button className="cart-btn">
-        🛒 {cartCount}
+        <a href="#">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#menu">Menu</a>
+
+        <a href="#reviews">Reviews</a>
+
+        <a href="#contact">Contact</a>
+
+      </nav>
+
+      <button className="book-btn">
+        Order Now
       </button>
 
-    </nav>
+    </header>
   );
 }
 
