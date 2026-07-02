@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import logo from "../../assets/logo/miracle-logo.png";
+import logo from "../../assets/Logo/miracle-logo.png";
 
 function Navbar() {
   return (
@@ -9,7 +9,7 @@ function Navbar() {
 
         <img src={logo} alt="Miracle Cafe" />
 
-        <h2>Miracle Coffe House</h2>
+        <h2>Miracle Coffee House</h2>
 
       </div>
 
