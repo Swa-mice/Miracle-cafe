@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import RestaurantQR from "../components/RestaurantQR/RestaurantQR";
 import {
   collection,
   onSnapshot,

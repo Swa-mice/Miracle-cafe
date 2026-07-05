@@ -2,7 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 import ChefDashboard from "./components/ChefDashboard/ChefDashboard";
-import Table from "./components/TableOrder/TableOrder"; 
+import Table from "./components/TableOrder/TableOrder";
+import RestaurantQR from "./components/RestaurantQR/RestaurantQR";
 
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -12,7 +13,7 @@ import Cart from "./components/Cart/Cart";
 import CustomerForm from "./components/CustomerForm/CustomerForm";
 import OrderSummary from "./components/OrderSummary/OrderSummary";
 import Receipt from "./components/Receipt/Receipt";
-
+import QRScanner from "./components/QRScanner/QRScanner";
 import About from "./components/About/About";
 import Reviews from "./components/Reviews/Reviews";
 import Contact from "./components/Contact/Contact";
@@ -49,185 +50,175 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [search] = useState("");
 
-  // 🔥 QR TABLE DETECTION
+  // 🔥 Detect table from QR
   useEffect(() => {
-    const path = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
-
     const table = params.get("table");
 
     if (table) {
       setTableNumber(table);
     }
-
-    // OPTIONAL: if user goes /table show table mode later
-    if (path === "/table") {
-      setStep("table");
-    }
   }, []);
+
+  // 🔥 TABLE PAGE ROUTE
+  if (window.location.pathname === "/table") {
+    return <Table />;
+  }
 
   return (
     <>
       <Navbar />
 
       <Container>
-
-        {/* 🔥 TABLE PAGE FROM QR */}
-        {window.location.pathname === "/table" ? (
-          <Table />
-        ) : (
+        {step === "menu" && (
           <>
-            {step === "menu" && (
-              <>
-                <Hero />
+            <Hero />
 
-                <section id="about">
-                  <About />
-                </section>
+            <section id="about">
+              <About />
+            </section>
 
-                <div id="menu">
-                  <div className="category-nav">
-                    <a href="#burgers">🍔 Burgers</a>
-                    <a href="#pizza">🍕 Pizza</a>
-                    <a href="#chicken">🍗 Chicken</a>
-                    <a href="#vegetables">🥗 Vegetables</a>
-                    <a href="#drinks">🥤 Drinks</a>
-                    <a href="#traditional">🍛 Traditional</a>
-                  </div>
+            <div id="menu">
+              <div className="category-nav">
+                <a href="#burgers">🍔 Burgers</a>
+                <a href="#pizza">🍕 Pizza</a>
+                <a href="#chicken">🍗 Chicken</a>
+                <a href="#vegetables">🥗 Vegetables</a>
+                <a href="#drinks">🥤 Drinks</a>
+                <a href="#traditional">🍛 Traditional</a>
+              </div>
 
-                  <div id="burgers">
-                    <MenuSection
-                      title="🍔 Burgers"
-                      foods={burgers.filter((f) =>
-                        f.name.toLowerCase().includes(search.toLowerCase())
-                      )}
-                      setCart={setCart}
-                    />
-                  </div>
-
-                  <div id="pizza">
-                    <MenuSection
-                      title="🍕 Pizzas"
-                      foods={pizzas.filter((f) =>
-                        f.name.toLowerCase().includes(search.toLowerCase())
-                      )}
-                      setCart={setCart}
-                    />
-                  </div>
-
-                  <div id="chicken">
-                    <MenuSection
-                      title="🍗 Chicken Meals"
-                      foods={chickenMeals.filter((f) =>
-                        f.name.toLowerCase().includes(search.toLowerCase())
-                      )}
-                      setCart={setCart}
-                    />
-                  </div>
-
-                  <div id="vegetables">
-                    <MenuSection
-                      title="🥗 Vegetables"
-                      foods={vegetables.filter((f) =>
-                        f.name.toLowerCase().includes(search.toLowerCase())
-                      )}
-                      setCart={setCart}
-                    />
-                  </div>
-
-                  <div id="traditional">
-                    <MenuSection
-                      title="🍛 Traditional Foods"
-                      foods={traditionalFoods.filter((f) =>
-                        f.name.toLowerCase().includes(search.toLowerCase())
-                      )}
-                      setCart={setCart}
-                    />
-                  </div>
-
-                  <div id="drinks">
-                    <MenuSection
-                      title="🥤 Drinks"
-                      foods={drinks.filter((f) =>
-                        f.name.toLowerCase().includes(search.toLowerCase())
-                      )}
-                      setCart={setCart}
-                    />
-                  </div>
-                </div>
-
-                <Cart cart={cart} setCart={setCart} />
-
-                {cart.length > 0 && (
-                  <button
-                    className="checkout-btn"
-                    onClick={() => setStep("order")}
-                  >
-                    Proceed to Checkout →
-                  </button>
-                )}
-
-                <section id="reviews">
-                  <Reviews />
-                </section>
-
-                <section id="contact">
-                  <Contact />
-                </section>
-
-                <Footer />
-              </>
-            )}
-
-            {step === "order" && (
-              <>
-                <CustomerForm
-                  customerName={customerName}
-                  setCustomerName={setCustomerName}
-                  orderType={orderType}
-                  setOrderType={setOrderType}
-                  tableNumber={tableNumber}
-                  setTableNumber={setTableNumber}
-                  paymentMethod={paymentMethod}
-                  setPaymentMethod={setPaymentMethod}
-                  packageNeeded={packageNeeded}
-                  setPackageNeeded={setPackageNeeded}
-                  note={note}
-                  setNote={setNote}
-                />
-
-                <OrderSummary
-                  cart={cart}
-                  customerName={customerName}
-                  orderType={orderType}
-                  tableNumber={tableNumber}
-                  paymentMethod={paymentMethod}
-                  packageNeeded={packageNeeded}
-                  note={note}
-                  setCurrentOrder={setCurrentOrder}
-                  setOrders={setOrders}
+              <div id="burgers">
+                <MenuSection
+                  title="🍔 Burgers"
+                  foods={burgers.filter((f) =>
+                    f.name.toLowerCase().includes(search.toLowerCase())
+                  )}
                   setCart={setCart}
                 />
+              </div>
 
-                <button
-                  className="back-btn"
-                  onClick={() => setStep("menu")}
-                >
-                  ← Back to Menu
-                </button>
+              <div id="pizza">
+                <MenuSection
+                  title="🍕 Pizzas"
+                  foods={pizzas.filter((f) =>
+                    f.name.toLowerCase().includes(search.toLowerCase())
+                  )}
+                  setCart={setCart}
+                />
+              </div>
 
-                <Receipt currentOrder={currentOrder} />
-              </>
+              <div id="chicken">
+                <MenuSection
+                  title="🍗 Chicken Meals"
+                  foods={chickenMeals.filter((f) =>
+                    f.name.toLowerCase().includes(search.toLowerCase())
+                  )}
+                  setCart={setCart}
+                />
+              </div>
+
+              <div id="vegetables">
+                <MenuSection
+                  title="🥗 Vegetables"
+                  foods={vegetables.filter((f) =>
+                    f.name.toLowerCase().includes(search.toLowerCase())
+                  )}
+                  setCart={setCart}
+                />
+              </div>
+
+              <div id="traditional">
+                <MenuSection
+                  title="🍛 Traditional Foods"
+                  foods={traditionalFoods.filter((f) =>
+                    f.name.toLowerCase().includes(search.toLowerCase())
+                  )}
+                  setCart={setCart}
+                />
+              </div>
+
+              <div id="drinks">
+                <MenuSection
+                  title="🥤 Drinks"
+                  foods={drinks.filter((f) =>
+                    f.name.toLowerCase().includes(search.toLowerCase())
+                  )}
+                  setCart={setCart}
+                />
+              </div>
+            </div>
+
+            <Cart cart={cart} setCart={setCart} />
+
+            {cart.length > 0 && (
+              <button
+                className="checkout-btn"
+                onClick={() => setStep("order")}
+              >
+                Proceed to Checkout →
+              </button>
             )}
 
-            <hr />
+            <section id="reviews">
+              <Reviews />
+            </section>
 
-            {isAdmin ? (
-              <Dashboard />
-            ) : (
-              <Login setIsAdmin={setIsAdmin} />
-            )}
+            <section id="contact">
+              <Contact />
+            </section>
+
+            <Footer />
           </>
+        )}
+
+        {step === "order" && (
+          <>
+            <CustomerForm
+              customerName={customerName}
+              setCustomerName={setCustomerName}
+              orderType={orderType}
+              setOrderType={setOrderType}
+              tableNumber={tableNumber}
+              setTableNumber={setTableNumber}
+              paymentMethod={paymentMethod}
+              setPaymentMethod={setPaymentMethod}
+              packageNeeded={packageNeeded}
+              setPackageNeeded={setPackageNeeded}
+              note={note}
+              setNote={setNote}
+            />
+
+            <OrderSummary
+              cart={cart}
+              customerName={customerName}
+              orderType={orderType}
+              tableNumber={tableNumber}
+              paymentMethod={paymentMethod}
+              packageNeeded={packageNeeded}
+              note={note}
+              setCurrentOrder={setCurrentOrder}
+              setOrders={setOrders}
+              setCart={setCart}
+            />
+
+            <button
+              className="back-btn"
+              onClick={() => setStep("menu")}
+            >
+              ← Back to Menu
+            </button>
+
+            <Receipt currentOrder={currentOrder} />
+          </>
+        )}
+
+        <hr />
+
+        {isAdmin ? (
+          <Dashboard />
+        ) : (
+          <Login setIsAdmin={setIsAdmin} />
         )}
       </Container>
     </>

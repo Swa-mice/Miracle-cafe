@@ -1,27 +1,20 @@
-import "./RestaurantQR.css";
 import QRCode from "react-qr-code";
+import "./RestaurantQR.css";
 
 function RestaurantQR() {
+  const url = `${window.location.origin}/table`;
+
   return (
-    <div className="qr-page">
+    <div className="qr-container">
+      <h2>🍽 Restaurant QR Code</h2>
 
-      <h1>☕ Miracle Cafe</h1>
+      <p>Scan to order</p>
 
-      <h2>Scan to Order</h2>
+      <div className="qr-box">
+        <QRCode value={url} size={200} />
+      </div>
 
-      <QRCode
-        value="https://YOUR-VERCEL-DOMAIN.vercel.app"
-        size={260}
-      />
-
-      <p>
-        Scan the QR Code with your phone
-      </p>
-
-      <p>
-        Enter your table number and place your order.
-      </p>
-
+      <p className="qr-link">{url}</p>
     </div>
   );
 }
