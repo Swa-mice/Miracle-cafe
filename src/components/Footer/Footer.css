@@ -1,6 +1,51 @@
 .footer{
-background:#3B2416;
+
+background:#1F1A17;
+
 color:white;
+
+padding:60px 8%;
+
 text-align:center;
-padding:25px;
+
+}
+
+.footer h2{
+
+font-family:"Cinzel",serif;
+
+color:#C89B3C;
+
+margin-bottom:20px;
+
+}
+
+.footer-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+margin:25px 0;
+
+flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+color:#C89B3C;
+
 }

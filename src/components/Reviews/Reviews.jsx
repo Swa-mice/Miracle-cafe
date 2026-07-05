@@ -1,25 +1,63 @@
 import "./Reviews.css";
 
-function Reviews() {
-  return (
-    <section className="reviews">
+function Reviews(){
 
-      <h2>Customer Reviews</h2>
+return(
 
-      <div className="review">
+<section className="reviews" id="reviews">
 
-        ⭐⭐⭐⭐⭐
+<h2>What Our Customers Say</h2>
 
-        <p>
-          "The best coffee and traditional food I've had in Addis."
-        </p>
+<div className="review-grid">
 
-        <h4>- Abebe</h4>
+<div className="review-card">
 
-      </div>
+★★★★★
 
-    </section>
-  );
+<p>
+
+"The best coffee and traditional food I've ever had. The atmosphere is amazing."
+
+</p>
+
+<h4>- Abebe T.</h4>
+
+</div>
+
+<div className="review-card">
+
+★★★★★
+
+<p>
+
+"Professional service, beautiful interior and delicious meals."
+
+</p>
+
+<h4>- Hana M.</h4>
+
+</div>
+
+<div className="review-card">
+
+★★★★★
+
+<p>
+
+"I'll definitely come back. Everything was fresh and perfectly prepared."
+
+</p>
+
+<h4>- Samuel K.</h4>
+
+</div>
+
+</div>
+
+</section>
+
+);
+
 }
 
 export default Reviews;

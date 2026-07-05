@@ -1,6 +1,41 @@
 .contact{
-padding:80px;
-background:#6F4E37;
-color:white;
+
+padding:90px 8%;
+
+background:white;
+
 text-align:center;
+
+}
+
+.contact-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-top:50px;
+
+}
+
+.contact-grid div{
+
+padding:35px;
+
+background:#FFF8F0;
+
+border-radius:20px;
+
+transition:.3s;
+
+}
+
+.contact-grid div:hover{
+
+background:#3B2416;
+
+color:white;
+
 }

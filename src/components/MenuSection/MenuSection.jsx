@@ -13,6 +13,7 @@ function MenuSection({ title, foods, setCart }) {
             name={food.name}
             price={food.price}
             ingredients={food.ingredients}
+            image={food.image}
             food={food}
             setCart={setCart}
           />

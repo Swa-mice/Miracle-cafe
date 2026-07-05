@@ -1,0 +1,24 @@
+.qr-page{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    background:#f8f8f8;
+    text-align:center;
+}
+
+.qr-page h1{
+    color:#5C3D2E;
+    font-size:50px;
+}
+
+.qr-page h2{
+    color:#D4A373;
+}
+
+.qr-page p{
+    font-size:18px;
+    color:#555;
+}

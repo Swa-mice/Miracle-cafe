@@ -1,35 +1,47 @@
 import "./WhyChooseUs.css";
 
-function WhyChooseUs() {
-  return (
-    <section className="why">
-      <h2>Why Choose Miracle Cafe?</h2>
+function WhyChooseUs(){
 
-      <div className="why-grid">
+const data=[
 
-        <div className="why-card">
-          <h3>☕ Premium Coffee</h3>
-          <p>Fresh Ethiopian coffee prepared by experienced baristas.</p>
-        </div>
+{icon:"☕",title:"Premium Coffee",text:"Freshly roasted Ethiopian beans served every day."},
 
-        <div className="why-card">
-          <h3>🍛 Authentic Food</h3>
-          <p>Traditional Ethiopian meals with unforgettable taste.</p>
-        </div>
+{icon:"🍛",title:"Authentic Cuisine",text:"Traditional recipes prepared with fresh ingredients."},
 
-        <div className="why-card">
-          <h3>⚡ Fast Service</h3>
-          <p>Quick ordering and fast delivery to your table.</p>
-        </div>
+{icon:"⚡",title:"Fast Ordering",text:"Quick digital ordering with a smooth customer experience."},
 
-        <div className="why-card">
-          <h3>❤️ Friendly Staff</h3>
-          <p>Professional hospitality that makes every guest feel welcome.</p>
-        </div>
+{icon:"❤️",title:"Warm Hospitality",text:"Friendly service that makes every visit memorable."}
 
-      </div>
-    </section>
-  );
+];
+
+return(
+
+<section className="why">
+
+<h2>Why Choose Miracle Cafe</h2>
+
+<div className="why-grid">
+
+{data.map((item,index)=>(
+
+<div className="why-card" key={index}>
+
+<div className="icon">{item.icon}</div>
+
+<h3>{item.title}</h3>
+
+<p>{item.text}</p>
+
+</div>
+
+))}
+
+</div>
+
+</section>
+
+);
+
 }
 
 export default WhyChooseUs;

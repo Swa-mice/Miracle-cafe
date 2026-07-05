@@ -1,51 +1,64 @@
 import "./FoodCard.css";
 
-function FoodCard({ name, price, ingredients, food,
-  setCart,}) {
+function FoodCard({
+  name,
+  price,
+  ingredients,
+  image,
+  food,
+  setCart,
+}) {
   return (
     <div className="food-card">
 
-      <div className="food-header">
-        <h3>{name}</h3>
+      <div className="food-image">
+        <img
+          src={image}
+          alt={name}
+        />
 
-        <span className="price">
-          {price} Br
+        <span className="food-price">
+          ETB {price}
         </span>
       </div>
 
-      <p className="ingredients">
-        {ingredients}
-      </p>
+      <div className="food-content">
+        <h3>{name}</h3>
 
-     <button
-  className="order-btn"
-  onClick={() => {
-  setCart((previousCart) => {
-    const existingFood = previousCart.find(
-      (item) => item.name === food.name
-    );
+        <p>{ingredients}</p>
 
-    if (existingFood) {
-      return previousCart.map((item) =>
-        item.name === food.name
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-    }
+        <button
+          className="order-btn"
+          onClick={() => {
+            setCart((previousCart) => {
+              const existingFood = previousCart.find(
+                (item) => item.name === food.name
+              );
 
-    return [
-      ...previousCart,
-      {
-        ...food,
-        quantity: 1,
-      },
-    ];
-  });
-}}
-  
->
-  🛒 Add to Cart
-</button>
+              if (existingFood) {
+                return previousCart.map((item) =>
+                  item.name === food.name
+                    ? {
+                        ...item,
+                        quantity: item.quantity + 1,
+                      }
+                    : item
+                );
+              }
+
+              return [
+                ...previousCart,
+                {
+                  ...food,
+                  quantity: 1,
+                },
+              ];
+            });
+          }}
+        >
+          🛒 Add To Cart
+        </button>
+      </div>
 
     </div>
   );
